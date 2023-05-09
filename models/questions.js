@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require("../config/connection");
+const sequelize = require("../../config/connection");
 
 class questions extends Model {}
 
@@ -12,7 +12,7 @@ questions.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    title: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -20,6 +20,10 @@ questions.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    answers: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     sequelize,
