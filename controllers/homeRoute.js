@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Questions,Comment,Post,Topic} = require('../public/models')
+const {Questions,Comment,Post,Topic} = require('../models')
 
 router.get('/',(req,res)=>{
     res.render('home')
