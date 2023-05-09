@@ -20,20 +20,21 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+router.get('/session',async(req,res)=>{
+  res.json(req.session)
+})
 // Login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username
       },
     });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+      console.log("no user with this username");
+      res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
 
