@@ -32,6 +32,7 @@ Questions.init(
   {
     sequelize,
     modelName: "questions",
+    freezeTableName: true
   }
 );
 
