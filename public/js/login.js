@@ -1,44 +1,40 @@
-const signupFormHandler = async (event) => {
-  event.preventDefault();
-  const username = document.querySelector("#signup-username");
-  const email = doument.querySelector("#signup-email");
-  const password = document.querySelector("#signup-password");
-
-  if (username && email && password) {
-    const response = await fetch("/api/users/", {
-      method: "POST",
-      body: JSON.stringify({ username, email, password }),
-      headers: { " Content-Type": "application/json" },
-    });
-    if (response.ok) {
-      document.location.replace("/");
+const signupForm = document.querySelector("#signup-form");
+signupForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const userObj = {
+    username: document.querySelector("#signup-username").value,
+    email: document.querySelector("#signup-email").value,
+    password: document.querySelector("#signup-password").value,
+  };
+  fetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify(userObj),
+    headers: { "Content-Type": "application/json" },
+  }).then((res) => {
+    if (res.ok) {
+      location.href = "/";
     } else {
-      alert("Failed to sign up");
+      alert("Failed to sign up! whoops whoops please try again");
     }
-  }
-};
-const signinFormHandler = async (event) => {
-  event.preventDefault();
-  const username = document.querySelector("#signin-username");
-  const password = document.querySelector("#signin-password");
+  });
+});
 
-  if (email && password) {
-    const response = await fetch("/api/users/signin", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (response.ok) {
-      document.location.replace("/");
+const signinForm = document.querySelector("#signin-form");
+signinForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const userObj = {
+    username: document.querySelector("#signin-username").value,
+    password: document.querySelector("#signin-password").value,
+  };
+  fetch("/api/users/login", {
+    method: "POST",
+    body: JSON.stringify(userObj),
+    headers: { "Content-Type": "application/json" },
+  }).then((res) => {
+    if (res.ok) {
+      location.href = "/";
     } else {
-      alert("invalid! sign failed due to username or password ");
+      alert("Failed to sign in! whoops whoops please try again");
     }
-  }
-};
-
-document
-  .querySelector(".signin-form")
-  .addEventListener("submit", signinFormHandler);
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+  });
+});
