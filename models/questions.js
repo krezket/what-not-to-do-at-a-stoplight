@@ -25,7 +25,7 @@ Questions.init(
       allowNull: false,
     },
     answers: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: false
     }
   },
