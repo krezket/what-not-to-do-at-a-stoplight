@@ -5,27 +5,27 @@ const Questions = require("./questions");
 const Topic = require("./topic");
 const Choice = require("./choice")
 
-
-User.hasMany(Post,{
+User.hasMany(Topic,{
+    foreignKey: 'user_id'
+});
+Topic.belongsTo(User,{
     foreignKey: 'user_id'
 });
 
-Post.belongsTo(User,{
-    foreignKey: 'user_id'
-});
+Topic.hasMany(Post,{
+    foreignKey: 'topic_id'
+})
+Post.belongsTo(Topic,{
+    foreignKey: 'topic_id'
+})
 
 Comment.belongsTo(Post,{
-    foreignKey: 'post_id'
+    foreignKey: 'comment_id'
 });
 Post.hasMany(Comment,{
-    foreignKey: 'post_id'
+    foreignKey: 'comment_id'
 });
-Topic.belongsTo(Post,{
-    foreignKey: 'post_id'
-})
-Post.hasMany(Topic,{
-    foreignKey: 'post_id'
-})
+
 Questions.hasMany(Choice,{
     foreignKey: 'question_id'
 })

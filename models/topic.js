@@ -16,10 +16,11 @@ Topic.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    post_id: {
+    user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
-        model: "post",
+        model: "user",
         key: "id",
       },
     },
