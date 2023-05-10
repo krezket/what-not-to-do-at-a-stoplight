@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {Post,Topic} = require('../../models')
-
+const {Comment} = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-      const topicData = await Topic.create(req.body);
-      res.status(200).json(topicData);
+      const commentData = await Comment.create(req.body);
+      res.status(200).json(commentData);
   
     } catch (err) {
       console.log(err);
@@ -16,13 +15,11 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req,res)=>{
     try{
-        const topicData = await Topic.findAll({
-          include: Post,
-        })
+        const commentData = await Comment.findAll()
 
-        const topic = topicData.map(topic=>topic.get({ plain: true}))
+        const comment = commentData.map(comment=>comment.get({ plain: true}))
         
-        res.json(topic)
+        res.json(comment)
     }
     catch(err){
         res.status(500).json(err);
