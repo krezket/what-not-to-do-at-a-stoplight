@@ -1,12 +1,15 @@
 const sequelize = require('../config/connection')
-const {Questions} = require('../models')
+const {Questions ,Choice} = require('../models')
 
 const questionsData = require('./questionsData.json')
-
+const choicesData = require('./choiceData.json')
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
   
     await Questions.bulkCreate(questionsData, {
+      returning: true,
+    });
+    await Choice.bulkCreate(choicesData, {
       returning: true,
     });
   
