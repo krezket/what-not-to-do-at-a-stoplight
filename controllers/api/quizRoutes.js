@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Questions } = require('../../models');
+const { Questions,Choice } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
@@ -19,7 +19,9 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req,res)=>{
     try{
-        const quizData = await Questions.findAll({})
+        const quizData = await Questions.findAll({
+          include: Choice 
+        })
 
         const quiz = quizData.map(quiz=>quiz.get({ plain: true}))
         
@@ -29,5 +31,13 @@ router.get('/', async (req,res)=>{
         res.status(500).json(err);
     }
 });
-
+// router.get('/quiz',(req,res)=>{
+    
+//   Questions.findAll().then(questions=>{
+//       res.json(questions)
+//   }).catch(err=>{
+//       console.log(err);
+//       res.status(500).json({err})
+//   })
+// })
 module.exports = router;

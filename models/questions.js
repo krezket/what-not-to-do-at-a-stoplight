@@ -24,10 +24,10 @@ Questions.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    answers: {
-      type: DataTypes.JSON,
-      allowNull: false
-    }
+    // answers: {
+    //   type: DataTypes.JSON,
+    //   allowNull: false
+    // }
   },
   {
     sequelize,

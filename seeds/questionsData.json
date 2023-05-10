@@ -1,47 +1,32 @@
 [
     {
         "title": "Right of Way",
-        "image": "public/images/2CornerImage.jpg",
-        "question": "Both cars arrive at 4-way stop at same time. Who goes first?",
-        "answers": [
-            {"a": "Car on the right", "isCorrect": true},
-            {"b": "Car on the left", "isCorrect": false}
-        ]
+        "image": "/images/2CornerImage.jpg",
+        "question": "Both cars arrive at 4-way stop at same time. Who goes first?"
+       
     },
     {
         "title": "Right of Way",
-        "image": "public/images/3CornerImage.jpg",
-        "question": "All arrive same time. Who goes first?",
-        "answers": [
-            {"a": "Car on the right", "isCorrect": true},
-            {"b": "Car on the left", "isCorrect": false}
-        ]
+        "image": "/images/3CornerImage.jpg",
+        "question": "All arrive same time. Who goes first?"
+        
     },
     {
         "title": "Right of Way",
-        "image": "public/images/4CornerImage.jpg",
-        "question": "All arrive same time. Who goes first?",
-        "answers": [
-            {"a": "Car on the right", "isCorrect": true},
-            {"b": "Car on the left", "isCorrect": false}
-        ]
+        "image": "/images/4CornerImage.jpg",
+        "question": "All arrive same time. Who goes first?"
+        
     },
     {
         "title": "Bike Boxes",
-        "image": "public/images/bikeCorner.png",
-        "question": "Can you stop in the bike box at a red light?",
-        "answers": [
-            {"a": "Car on the right", "isCorrect": true},
-            {"b": "Car on the left", "isCorrect": false}
-        ]
+        "image": "/images/bikeCorner.png",
+        "question": "Can you stop in the bike box at a red light?"
+        
     },
     {
         "title": "Roundabout",
-        "image": "public/images/roundabout.png",
-        "question": "When do you stop in a roundabount?",
-        "answers": [
-            {"a": "Car on the right", "isCorrect": true},
-            {"b": "Car on the left", "isCorrect": false}
-        ]
+        "image": "/images/roundabout.png",
+        "question": "When do you stop in a roundabount?"
+        
     }
 ]
