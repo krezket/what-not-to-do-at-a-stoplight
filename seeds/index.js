@@ -7,7 +7,6 @@ const seedDatabase = async () => {
     await sequelize.sync({ force: true });
   
     await Questions.bulkCreate(questionsData, {
-      individualHooks: true,
       returning: true,
     });
   

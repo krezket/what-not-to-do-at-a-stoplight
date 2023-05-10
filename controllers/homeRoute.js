@@ -11,7 +11,7 @@ router.get('/login',(req,res)=>{
     res.render('login')
 })
 
-router.get('/quiz', (req,res)=>{
+router.get('/quiz',(req,res)=>{
     res.render('quiz')
 })
 
