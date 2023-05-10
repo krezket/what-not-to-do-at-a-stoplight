@@ -11,12 +11,16 @@ signinForm.addEventListener("submit", e => {
     body: JSON.stringify(userObj),
     headers: { "Content-Type": "application/json" },
   }).then((res) => {
+    console.log(res);
     if (res.ok) {
-      location.href = "/";
+      return res.json()
+      // location.href = "/";
     } else {
       alert("Failed to sign in! whoops whoops please try again");
     }
-  });
+  }).then((res)=>{
+    console.log(res);
+  })
 });
 
 
@@ -36,10 +40,13 @@ signupForm.addEventListener("submit", e => {
     headers: { "Content-Type": "application/json" },
   }).then((res) => {
     if (res.ok) {
-      location.href = "/";
+      return res.json()
+      //location.href = "/";
     } else {
       alert("Failed to sign up! whoops whoops please try again");
     }
+  }).then((res)=>{
+    console.log(res);
   });
 });
 

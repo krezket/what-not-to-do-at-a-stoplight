@@ -3,6 +3,7 @@ const Post = require("./post");
 const Comment = require("./comment");
 const Questions = require("./questions");
 const Topic = require("./topic");
+const Choice = require("./choice")
 
 
 User.hasMany(Post,{
@@ -25,4 +26,11 @@ Topic.belongsTo(Post,{
 Post.hasMany(Topic,{
     foreignKey: 'post_id'
 })
-module.exports = {User,Post,Comment,Questions,Topic}
+Questions.hasMany(Choice,{
+    foreignKey: 'question_id'
+})
+Choice.belongsTo(Questions,{
+    foreignKey: 'question_id'
+})
+
+module.exports = {User,Post,Comment,Questions,Topic,Choice}
