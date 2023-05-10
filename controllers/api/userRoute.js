@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Topic } = require('../../models');
+const bcrypt = require("bcrypt")
 
 
 router.get('/', async (req,res)=>{
