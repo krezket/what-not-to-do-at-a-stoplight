@@ -12,11 +12,6 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    notes: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-
     topic_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -25,6 +20,10 @@ Post.init(
         key: "id",
       },
     },
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    }
   },
   {
     sequelize,

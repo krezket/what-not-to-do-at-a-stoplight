@@ -14,16 +14,17 @@ Topic.belongsTo(User,{
 
 Topic.hasMany(Post,{
     foreignKey: 'topic_id'
-})
+});
 Post.belongsTo(Topic,{
     foreignKey: 'topic_id'
-})
+});
+
+Post.hasMany(Comment,{
+    foreignKey: 'post_id'
+});
 
 Comment.belongsTo(Post,{
-    foreignKey: 'comment_id'
-});
-Post.hasMany(Comment,{
-    foreignKey: 'comment_id'
+    foreignKey: 'post_id'
 });
 
 Questions.hasMany(Choice,{
