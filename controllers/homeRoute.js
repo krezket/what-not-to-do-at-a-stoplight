@@ -6,10 +6,10 @@ router.get('/',(req,res)=>{
     res.render('home')
 })
 
-
 router.get('/login', async(req,res)=>{
     res.render('login')
 })
+
 router.get('/logout',(req,res)=>{
     res.render('home', {
         loggedIn: req.session.loggedIn,
@@ -19,6 +19,7 @@ router.get('/logout',(req,res)=>{
 router.get('/quiz',(req,res)=>{
     res.render('quiz')
 })
+
 router.get('/post', (req,res)=>{
     res.render('post')
 })

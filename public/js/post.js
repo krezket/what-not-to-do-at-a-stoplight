@@ -19,10 +19,23 @@ document.querySelector("form").addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.reload()
+        //    location.reload()
+        addPost()
         } else {
             alert("bruh")
         }
+    });
+});
+
+function addPost() {
+    fetch("/api/topics",{
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>res.json()).then(res=>{
+        [last]=res.slice(-1);
+        console.log(last.id)
     });
 
     fetch("/api/posts",{
@@ -38,4 +51,4 @@ document.querySelector("form").addEventListener("submit",e=>{
             alert("bruh")
         }
     });
-});
+}
