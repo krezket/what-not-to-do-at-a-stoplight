@@ -12,19 +12,18 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    notes: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-
-    user_id: {
+    topic_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "user",
+        model: "topics",
         key: "id",
       },
     },
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    }
   },
   {
     sequelize,
