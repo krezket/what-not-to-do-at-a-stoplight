@@ -39,43 +39,7 @@ router.post("/", async (req, res) => {
 router.get("/session", async (req, res) => {
   res.json(req.session);
 });
-// Login
-// router.post('/login', async (req, res) => {
-//   try {
-//     const userData = await User.findOne({
-//       where: {
-//         username: req.body.username
-//       },
-//     });
 
-//     if (!userData) {
-//       console.log("no user with this username");
-//       res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
-//       return;
-//     }
-
-//     const validPassword = await userData.checkPassword(req.body.password);
-
-//     if (!validPassword) {
-//       res
-//         .status(400)
-//         .json({ message: 'Incorrect email or password. Please try again!' });
-//       return;
-//     }
-
-//     req.session.save(() => {
-//       req.session.loggedIn = true;
-
-//       res
-//         .status(200)
-//         .json({ user: userData, message: 'You are now logged in!' });
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-//henry
 router.post("/login", async (req, res) => {
   console.log(req.body);
   try {
@@ -106,12 +70,10 @@ router.post("/login", async (req, res) => {
 // Logout
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+    res.redirect('/')
+    return
+  } 
+  res.render('login')
 });
 
 module.exports = router;
