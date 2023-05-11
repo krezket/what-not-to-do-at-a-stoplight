@@ -1,16 +1,26 @@
 <div id="btn-dashboard" style="text-align: center " >
 <button onclick="location.href='/quiz';" class="button is-info is-outlined" style="" >start the quiz</button> 
-<button onclick="location.href='/logout';" class="button is-info is-outlined ok" >logout</button>
+<button onclick="location.href='/profile';" class="button is-info is-outlined ok" >profile</button>
+{{!-- <button onclick="location.href='/logout';" class="button is-info is-outlined ok" >logout</button> --}}
+<button
+    onclick="location.href='/';"
+    class="button is-info is-outlined"
+    style=""
+  >Home</button>
 </div>
 
-<h3>
+<h3 id="input-post"> 
   Make a new Post
 </h3>
+
+
+
+
 
 <form>
 
   <div class="field column is-3">
-      <label class="label">Topic</label>
+      <label id="lable" class="label">Topic</label>
     <div class="control has-icons-left has-icons-right">
       <input class="input is-success" id="topic" type="text" placeholder="Text input" >
       <span class="icon is-small is-left">
@@ -23,7 +33,7 @@
   </div>
 
   <div class="column is-3 ">
-      <label class="label">Post</label>
+      <label id="lable"class="label" type="text">Post</label>
     <div class="control">
       <textarea id="post" class="textarea" placeholder="Textarea"></textarea>
     </div>
@@ -38,5 +48,5 @@
     </div>
   </div>
 </form>
- 
+  
 <script src="/js/post.js"></script>
