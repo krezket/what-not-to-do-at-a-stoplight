@@ -1,47 +1,39 @@
+#question-image {
+  width: 30%;
+  height: 50vh;
+  margin-left: 30%;
+}
 
-  
-   #question-image{
-    width: 30%;
-    height: 50vh;
-    margin-left: 30%;
-   }
-   
-   
-   h1{
-    font-family: 'Dancing Script', cursive;
-    
-   }
-   #sign{
-    font-size: 30px;
+h1 {
+  font-family: "Dancing Script", cursive;
+}
+#sign {
+  font-size: 30px;
+  color: aliceblue;
+}
+#btn {
+  margin-top: 10%;
+}
+#text {
+  min-width: 40%;
+}
+.timer {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 20px;
+  padding-right: 2%;
+}
 
-    
-   }
-   #btn{
-    margin-top: 10%;
-   }
-   #text{
-    min-width: 40%;
-   }
-   .timer {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    font-size: 20px;
-    padding-right: 2%;
-  }
-   
-  #question{
-    font-size: 30px;
-    font-family: 'Dancing Script', cursive;
+#question {
+  font-size: 30px;
+  font-family: "Dancing Script", cursive;
+}
 
-  }
-
-  /* #choices{
+/* #choices{
     
   } */
 
-
-
-   /* #choices{
+/* #choices{
     color: aqua;
    } */
