@@ -4,7 +4,7 @@ document.querySelector("#logout").addEventListener("click", e => {
     method: "POST",
   }).then((res) => {
     if (res.ok) {
-      location.reload();
+      document.location.replace('/');
     } else {
       alert("failed to log out");
     }

@@ -49,7 +49,7 @@ function countDown() {
     console.log(timeLeft);
 
     if (timeLeft <= 0) {
-      timeLeft = 0;
+      timeLeft = 0
       clearInterval(timeInterval);
       
 
