@@ -13,9 +13,10 @@
       <h1 class="title is-1">
        What not to do at a stop light
       </h1>
-       {{#if logged_in}}
+       {{#if loggedIn}}
     <nav>
       <button class="button is-link is-outlined">logout</button>
+        <script src="/js/logout.js"></script>
     </nav>
     {{/if}}
       <p class="subtitle">
@@ -27,8 +28,5 @@
         {{{body}}}
     </main>
     
-     {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
   </body>
 </html>
