@@ -10,18 +10,18 @@ const commentData = require('./commentData.json')
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
     
-    await User.bulkCreate(userData, {
-      returning: true,
-    });
-    await Topic.bulkCreate(topicData, {
-      returning: true,
-    });
-    await Comment.bulkCreate(commentData, {
-      returning: true,
-    });
-    await Post.bulkCreate(postData, {
-      returning: true,
-    });
+    // await User.bulkCreate(userData, {
+    //   returning: true,
+    // });
+    // await Topic.bulkCreate(topicData, {
+    //   returning: true,
+    // });
+    // await Comment.bulkCreate(commentData, {
+    //   returning: true,
+    // });
+    // await Post.bulkCreate(postData, {
+    //   returning: true,
+    // });
     await Questions.bulkCreate(questionsData, {
       returning: true,
     });
