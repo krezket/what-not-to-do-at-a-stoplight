@@ -1,12 +1,12 @@
 const sequelize = require('../config/connection')
 const {Questions ,Choice, Post, Topic, User, Comment} = require('../models')
 
-const userData = require('./userData.json')
+// const userData = require('./userData.json')
+// const topicData = require('./topicData.json')
+// const postData = require('./postData.json')
+// const commentData = require('./commentData.json')
 const questionsData = require('./questionsData.json')
 const choicesData = require('./choiceData.json')
-const topicData = require('./topicData.json')
-const postData = require('./postData.json')
-const commentData = require('./commentData.json')
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
     

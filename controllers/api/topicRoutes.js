@@ -5,7 +5,7 @@ const {Post,Topic} = require('../../models')
 
 router.post('/', async (req, res) => {
     try {
-      const topicData = await Topic.create(req.body);
+      const topicData = await Topic.create({...req.body, user_id:req.session.user_id});
       res.status(200).json(topicData);
   
     } catch (err) {
