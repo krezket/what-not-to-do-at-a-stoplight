@@ -7,11 +7,13 @@ router.get('/',(req,res)=>{
 })
 
 
-router.get('/login',(req,res)=>{
+router.get('/login', async(req,res)=>{
     res.render('login')
 })
 router.get('/logout',(req,res)=>{
-    res.render('home')
+    res.render('home', {
+        loggedIn: req.session.loggedIn,
+      })
 })
 
 router.get('/quiz',(req,res)=>{
@@ -20,5 +22,12 @@ router.get('/quiz',(req,res)=>{
 router.get('/post', (req,res)=>{
     res.render('post')
 })
+// router.get('/login', (req, res) => {
+//     if (req.session.loggedIn) {
+//       res.redirect('/');
+//       return;
+//     }
+//     res.render('login');
+//   });
 
 module.exports = router;

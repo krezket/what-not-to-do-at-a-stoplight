@@ -1,63 +1,39 @@
-/* *{
- background-color: aqua;
-}  */
-/* .login-card {
-    margin: 0 0 20px 0;
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding: 5px;
-    border: 3px solid var(--dark);
-    border-radius: var(--border-radius);
-    border-style: double;
-    border-width: thick;
-    background-color: #577a7c;
-    color: var(--light);
-  }
-  
-   */
-  
-   #question-image{
-    width: 30%;
-    height: 50vh;
-    margin-left: 30%;
-   }
-   
-   
-   h1{
-    font-family: 'Dancing Script', cursive;
-    
-   }
-   #sign{
-    font-size: 30px;
+#question-image {
+  width: 30%;
+  height: 50vh;
+  margin-left: 30%;
+}
 
-    
-   }
-   #btn{
-    margin-top: 10%;
-   }
-   #text{
-    min-width: 40%;
-   }
-   .timer {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-    font-size: 20px;
-    padding-right: 2%;
-  }
-   
-  #question{
-    font-size: 30px;
-    font-family: 'Dancing Script', cursive;
+h1 {
+  font-family: "Dancing Script", cursive;
+}
+#sign {
+  font-size: 30px;
+  color: aliceblue;
+}
+#btn {
+  margin-top: 10%;
+}
+#text {
+  min-width: 40%;
+}
+.timer {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 20px;
+  padding-right: 2%;
+}
 
-  }
+#question {
+  font-size: 30px;
+  font-family: "Dancing Script", cursive;
+}
 
-  /* #choices{
+/* #choices{
     
   } */
 
-
-
-   /* #choices{
+/* #choices{
     color: aqua;
    } */
