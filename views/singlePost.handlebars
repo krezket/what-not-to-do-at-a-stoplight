@@ -1,0 +1,15 @@
+<div>
+  <h3>{{user.username}}'s Blog: {{title}}</h3>
+  {{#each posts}}
+    <p>Posted By: {{this.username}}</p>
+    <p>{{this.notes}}</p>
+    <p>Comments</p>
+  {{/each}}
+</div>
+
+<h3>Make a new post in "{{title}}"</h3>
+<form>
+    <textarea type="text" id="post" placeholder="Text input"></textarea>
+    <button>Submit</button>
+</form>
+<script src="/js/newPost.js"></script>
