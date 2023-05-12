@@ -32,7 +32,7 @@ document.querySelector("#comment-form").addEventListener("submit",e=>{
     
     function comment(topic) {
         const commentObj = {
-            notes:document.querySelector("#post").value,
+            text:document.querySelector("#comment").value,
             post_id:
         }
         console.log(topic)

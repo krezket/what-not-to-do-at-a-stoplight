@@ -90,6 +90,7 @@ router.get("/post/:id", async (req,res)=>{
 
     res.render("singlePost", {
         ...topic,
+        username: req.session.username,
         loggedIn: req.session.loggedIn,
     });
     }
