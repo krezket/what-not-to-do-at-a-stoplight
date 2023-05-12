@@ -8,9 +8,11 @@
   </button>
 
 {{#each topics as |topic|}}
-<h3>
-  {{user.username}}: {{topic.title}}
-</h3>
+<div>
+  <h3>{{topic.title}}</h3>
+  <p>By: {{user.username}}</p>
+</div>
+
   {{/each}}
 
 </div>
