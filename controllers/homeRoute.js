@@ -55,19 +55,48 @@ router.get("/quiz", (req, res) => {
     loggedIn: req.session.loggedIn,
   });
 });
+
+router.get("/login", (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect("/");
+      return;
+    }
+    res.render("login");
+  });
+
 router.get("/post", (req, res) => {
   // check if req.session.userId
   res.render("post", {
+    username: req.session.username,
     userId: req.session.userId,
     loggedIn: req.session.loggedIn,
   });
 });
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-  res.render("login");
+
+router.get("/post/:id", async (req,res)=>{
+    try {
+        const topicData = await Topic.findByPk(req.params.id,{
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+            {model: Post},
+        ],
+    });
+
+    const topic = topicData.get({plain:true});
+    console.log(topic)
+
+    res.render("singlePost", {
+        ...topic,
+        loggedIn: req.session.loggedIn,
+    });
+    }
+    catch (err) {
+    res.status(500).json(err);
+    }
+
 });
 router.get("/profile", async (req,res)=>{
     User.findByPk(req.session.userId,{
