@@ -2,6 +2,7 @@
   width: 30%;
   height: 50vh;
   margin-left: 30%;
+  margin-bottom: 2%;
 }
 
 h1 {
@@ -17,7 +18,7 @@ h1 {
 #text {
   min-width: 40%;
 }
-.timer {
+#timer {
   display: flex;
   justify-content: end;
   align-items: end;
@@ -27,7 +28,7 @@ h1 {
 
 #question {
   font-size: 30px;
-  font-family: "Dancing Script", cursive;
+  
 }
 
 /* #choices{
