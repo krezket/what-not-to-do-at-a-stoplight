@@ -69,10 +69,27 @@ router.get("/login", (req, res) => {
   }
   res.render("login");
 });
-router.get("/profile",(req,res)=>{
-    res.render("profile",{
-    userId: req.session.userId,
-  loggedIn: req.session.loggedIn})
+router.get("/profile", async (req,res)=>{
+    User.findByPk(req.session.userId,{
+        include: [{model:Topic, include:Post}]
+    }).then(user=>{
+        let userData = user.get({plain:true})
+        console.log(userData);
+
+        let topics = user.topics.map(topic=>{
+            let posts = topic.posts.map(post=>post.get({plain:true}))
+            let topicdata = topic.get({plain:true})
+            topicdata.posts = posts
+            return topicdata
+        })
+        console.log(topics);
+        res.render("profile",{
+            topics:topics, 
+            user:userData,
+        userId: req.session.userId,
+      loggedIn: req.session.loggedIn})
+
+    })
 })
 
 module.exports = router;
