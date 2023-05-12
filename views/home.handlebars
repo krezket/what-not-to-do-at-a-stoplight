@@ -4,19 +4,15 @@
     onclick="location.href='/quiz';"
     class="button is-info is-outlined"
     style=""
-  >start the quiz</button>
-  {{! <button onclick="location.href='/login';" class="button is-info is-outlined" style="" >login</button> }}
-  <h3>
-    {{! <button  class="button is-info is-outlined" >leaderbord</button> }}
+  >start the quiz
+  </button>
 
-  </h3>
-  {{! <a href="/quiz">Take the Quiz!</a> }}
-  <button
-    onclick="location.href='/login';"
-    class="button is-info is-outlined ok"
-  >sign in/sign up</button>
-  <div>
+{{#each topics as |topic|}}
+<div>
+  <h3>{{topic.title}}</h3>
+  <p>By: {{user.username}}</p>
+</div>
 
-  </div>
+  {{/each}}
 
 </div>

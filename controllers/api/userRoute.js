@@ -1,19 +1,18 @@
 const router = require("express").Router();
 const { User, Topic } = require("../../models");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
 
-router.get('/', async (req,res)=>{
-  try{
-      const userData = await User.findAll({
-        include: Topic
-      })
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      include: Topic,
+    });
 
-      const user = userData.map(user=>user.get({ plain: true}))
-      
-      res.json(user)
-  }
-  catch(err){
-      res.status(500).json(err);
+    const user = userData.map((user) => user.get({ plain: true }));
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
@@ -26,11 +25,10 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(newUserData);
-    });
+    req.session.userId = newUserData.id;
+    req.session.username = newUserData.username;
+    req.session.loggedIn = true;
+    res.status(200).json(newUserData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -92,7 +90,7 @@ router.post("/login", async (req, res) => {
       if (bcrypt.compareSync(req.body.password, userData.password)) {
         req.session.userId = userData.id;
         req.session.username = userData.username;
-        req.session.isloggedin = true;
+        req.session.loggedIn = true;
         res.status(200).json(userData);
       } else {
         res.status(403).json({ msg: "wrong password " });
@@ -106,11 +104,10 @@ router.post("/login", async (req, res) => {
 // Logout
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
+    req.session.destroy();
+    res.status(200).json({ msg: "logged out done" });
   } else {
-    res.status(404).end();
+    res.status(404).json({ msg: "you're not logged in" });
   }
 });
 
