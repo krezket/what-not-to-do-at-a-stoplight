@@ -4,11 +4,16 @@
     <p>Posted By: {{this.username}}</p>
     <p>{{this.notes}}</p>
     <p>Comments</p>
+    <h4>Add a comment</h4>
+<form id="comment-form">
+    <textarea type="text" id="comment" placeholder="Text input"></textarea>
+    <button>Submit</button>
+</form>
   {{/each}}
 </div>
 
 <h3>Make a new post in "{{title}}"</h3>
-<form>
+<form id="post-form">
     <textarea type="text" id="post" placeholder="Text input"></textarea>
     <button>Submit</button>
 </form>

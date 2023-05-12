@@ -1,4 +1,4 @@
-document.querySelector("form").addEventListener("submit",e=>{
+document.querySelector("#post-form").addEventListener("submit",e=>{
     e.preventDefault();
 
     const searchParam = document.location.pathname.split('/')
