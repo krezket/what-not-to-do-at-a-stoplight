@@ -37,4 +37,22 @@ h1 {
 
 /* #choices{
     color: aqua;
+<<<<<<< HEAD
    } */
+=======
+   } */
+   #lable{
+    color: aliceblue;
+   }
+#input-post{
+  color: aliceblue;
+  font-family: "Dancing Script", cursive;
+}
+
+.card-username{
+  color: aliceblue;
+  font-size: 30px;
+  font-family: "Dancing Script", cursive;
+}
+
+>>>>>>> eae4d39da7a354bcd893844acd7e84f5f29a70e4

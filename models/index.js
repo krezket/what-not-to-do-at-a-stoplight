@@ -11,6 +11,10 @@ User.hasMany(Topic,{
 Topic.belongsTo(User,{
     foreignKey: 'user_id'
 });
+// Post.belongsTo(User,{
+//     through: Topic,
+//     foreignKey: 'user_id'
+// })
 
 Topic.hasMany(Post,{
     foreignKey: 'topic_id'
