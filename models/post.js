@@ -23,6 +23,18 @@ Post.init(
     notes: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   },
   {

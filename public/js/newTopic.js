@@ -16,14 +16,14 @@ document.querySelector("form").addEventListener("submit",e=>{
     }).then(res=>{
         if(res.ok){
         //    location.reload()
-        getPost()
+        getTopicId()
         } else {
             alert("bruh")
         }
     });
 });
 
-function getPost() {
+function getTopicId() {
     fetch("/api/topics",{
         method:"GET",
         headers:{
@@ -32,11 +32,11 @@ function getPost() {
     }).then(res=>res.json()).then(res=>{
         [last]=res.slice(-1);
         console.log(last.id)
-        addPost(last.id)
+        addTopicId(last.id)
     });
 }
 
-function addPost(currentTopic){
+function addTopicId(currentTopic){
     const postObj = {
         notes:document.querySelector("#post").value,
         topic_id:currentTopic
