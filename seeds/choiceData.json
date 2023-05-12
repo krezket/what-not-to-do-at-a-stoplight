@@ -1,25 +1,46 @@
 [
     
         
-            {"answer": "Car on the right", "isCorrect": true , "question_id": 1},
-            {"answer": "Car on the left", "isCorrect": false , "question_id": 1},
+            // {"answer": "Car on the right", "isCorrect": true , "question_id": 1},
+            // {"answer": "Car on the left", "isCorrect": false , "question_id": 1},
 
-            {"answer": "Car on the right", "isCorrect": true, "question_id": 2},
-            {"answer": "Car on the left", "isCorrect": false, "question_id": 2},
+            // {"answer": "Car on the right", "isCorrect": true, "question_id": 2},
+            // {"answer": "Car on the left", "isCorrect": false, "question_id": 2},
 
-            {"answer": "Car on the right", "isCorrect": true,"question_id": 3},
-            {"answer": "Car on the left", "isCorrect": false,"question_id":3},
+            // {"answer": "Car on the right", "isCorrect": true,"question_id": 3},
+            // {"answer": "Car on the left", "isCorrect": false,"question_id":3},
 
-            {"answer": "Car on the right", "isCorrect": true,"question_id":4},
-            {"answer": "Car on the left", "isCorrect": false,"question_id":4},
+            // {"answer": "Car on the right", "isCorrect": true,"question_id":4},
+            // {"answer": "Car on the left", "isCorrect": false,"question_id":4},
 
-            {"answer": "Car on the right", "isCorrect": true,"question_id":5},
-            {"answer": "Car on the left", "isCorrect": false,"question_id":5}
-
-
+            // {"answer": "Car on the right", "isCorrect": true,"question_id":5},
+            // {"answer": "Car on the left", "isCorrect": false,"question_id":5}
 
 
+            {"answer": "Go through interection and then pull safely to left", "isCorrect": false , "question_id": 1},
+            {"answer": "Go through interection and then pull safely to right", "isCorrect": true , "question_id": 1},
+            {"answer": "Turn into the nearest driveway", "isCorrect": false , "question_id": 1},
+            {"answer": "Turn on your Hazards and don't move", "isCorrect": false , "question_id": 1},
+
+            {"answer": "5 ft", "isCorrect": false , "question_id": 2},
+            {"answer": "10 ft", "isCorrect": false , "question_id": 2},
+            {"answer": "20 ft", "isCorrect": true , "question_id": 2},
+            {"answer": "40 ft", "isCorrect": false , "question_id": 2},
             
+            {"answer": "55 mph", "isCorrect": false , "question_id": 3},
+            {"answer": "40 mph", "isCorrect": false , "question_id": 3},
+            {"answer": "30 mph", "isCorrect": false , "question_id": 3},
+            {"answer": "15 mph", "isCorrect": true , "question_id": 3},
+
+            {"answer": "Normally, never", "isCorrect": true , "question_id": 4},
+            {"answer": "To let another car in", "isCorrect": false , "question_id": 4},
+            {"answer": "To let another car out", "isCorrect": false , "question_id": 4},
+            {"answer": "For emergency vehicles", "isCorrect": false , "question_id": 4},
+
+            {"answer": "Yes", "isCorrect": false , "question_id": 5},
+            {"answer": "No", "isCorrect": true , "question_id": 5},
+            {"answer": "If it's not occupied", "isCorrect": false , "question_id": 5},
+            {"answer": "If there is a car behind you", "isCorrect": false , "question_id": 5},
         
 
     
