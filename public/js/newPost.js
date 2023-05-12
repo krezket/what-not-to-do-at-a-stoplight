@@ -7,7 +7,7 @@ document.querySelector("#post-form").addEventListener("submit",e=>{
     
     function post(topic) {
         const postObj = {
-            notes:document.querySelector("#post").value,
+            text:document.querySelector("#comment").value,
             topic_id:topic
         }
         console.log(topic)
@@ -29,20 +29,16 @@ document.querySelector("#post-form").addEventListener("submit",e=>{
 
 document.querySelector("#comment-form").addEventListener("submit",e=>{
     e.preventDefault();
-
-    const searchParam = document.location.pathname.split('/')
-    const [last] = searchParam.slice(-1)
-    post(last);
     
-    function post(topic) {
-        const postObj = {
+    function comment(topic) {
+        const commentObj = {
             notes:document.querySelector("#post").value,
-            topic_id:topic
+            post_id:
         }
         console.log(topic)
-        fetch("/api/posts",{
+        fetch("/api/comments",{
             method:"POST",
-            body:JSON.stringify(postObj),
+            body:JSON.stringify(commentObj),
             headers:{
                 "Content-Type":"application/json"
             }
