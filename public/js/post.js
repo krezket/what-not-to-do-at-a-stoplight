@@ -49,7 +49,7 @@ function addPost(currentTopic){
         }
     }).then(res=>{
         if(res.ok){
-           location.reload()
+           location.assign('/')
         } else {
             alert("bruh")
         }
