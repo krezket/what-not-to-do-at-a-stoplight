@@ -1,22 +1,6 @@
 [
     
         
-            // {"answer": "Car on the right", "isCorrect": true , "question_id": 1},
-            // {"answer": "Car on the left", "isCorrect": false , "question_id": 1},
-
-            // {"answer": "Car on the right", "isCorrect": true, "question_id": 2},
-            // {"answer": "Car on the left", "isCorrect": false, "question_id": 2},
-
-            // {"answer": "Car on the right", "isCorrect": true,"question_id": 3},
-            // {"answer": "Car on the left", "isCorrect": false,"question_id":3},
-
-            // {"answer": "Car on the right", "isCorrect": true,"question_id":4},
-            // {"answer": "Car on the left", "isCorrect": false,"question_id":4},
-
-            // {"answer": "Car on the right", "isCorrect": true,"question_id":5},
-            // {"answer": "Car on the left", "isCorrect": false,"question_id":5}
-
-
             {"answer": "Go through interection and then pull safely to left", "isCorrect": false , "question_id": 1},
             {"answer": "Go through interection and then pull safely to right", "isCorrect": true , "question_id": 1},
             {"answer": "Turn into the nearest driveway", "isCorrect": false , "question_id": 1},
@@ -40,7 +24,7 @@
             {"answer": "Yes", "isCorrect": false , "question_id": 5},
             {"answer": "No", "isCorrect": true , "question_id": 5},
             {"answer": "If it's not occupied", "isCorrect": false , "question_id": 5},
-            {"answer": "If there is a car behind you", "isCorrect": false , "question_id": 5},
+            {"answer": "If there is a car behind you", "isCorrect": false , "question_id": 5}
         
 
     
