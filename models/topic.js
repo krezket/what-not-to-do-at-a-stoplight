@@ -30,4 +30,4 @@ Topic.init(
     modelName: "topic",
   }
 );
- module.exports = Topic;
+module.exports = Topic;

@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {Post,Comment} = require('../../models')
+const { Topic, Post, Comment } = require('../../models')
 
 router.post('/', async (req, res) => {
-    try {
-      const postData = await Post.create(req.body);
+  try {
+      // const topic = await Topic.findAll(req.body.id)
+      console.log(req.body)
+      const postData = await Post.create({...req.body, inculde:Topic});
       res.status(200).json(postData);
   
     } catch (err) {
