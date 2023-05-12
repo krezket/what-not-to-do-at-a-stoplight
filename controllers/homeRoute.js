@@ -2,11 +2,25 @@ const express = require("express");
 const router = express.Router();
 const { Questions, Comment, Post, Topic, User } = require("../models");
 
-router.get("/", (req, res) => {
-  res.render("home", {
-    userId: req.session.userId,
-    loggedIn: req.session.loggedIn,
-  });
+router.get("/", async (req, res) => {
+  try {
+    const topicData = await Topic.findAll({
+        include: [{
+            model: User,
+            attributes: ['username']
+        }],
+    })
+    const topics = topicData.map(topic=>topic.get({plain:true}));
+
+    res.render("home", {
+        topics,
+        userId: req.session.userId,
+        loggedIn: req.session.loggedIn,
+      });
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // router.get("/login", async (req, res) => {
