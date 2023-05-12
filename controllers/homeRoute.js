@@ -4,19 +4,36 @@ const { Questions, Comment, Post, Topic, User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    const topicData = await Topic.findAll({
-        include: [{
-            model: User,
-            attributes: ['username']
-        }],
-    })
-    const topics = topicData.map(topic=>topic.get({plain:true}));
+    if(!req.session.loggedIn){
+        res.render("home", {
+            userId: req.session.userId,
+            loggedIn: req.session.loggedIn,
+        });
+    }
+    else {
+        const userData = await User.findByPk(req.session.userId, {
+            attributes: { exclude: ['password'] },
+        });
+    
+        const topicData = await Topic.findAll({
+            include: [{
+                model: User,
+                attributes: ['username']
+            }],
+        })
+    
+        const user = userData.get({ plain: true });
+        const topics = topicData.map(topic=>topic.get({plain:true}));
+    
+        res.render("home", {
+            user,
+            topics,
+            userId: req.session.userId,
+            loggedIn: req.session.loggedIn,
+          });
+    
+    }
 
-    res.render("home", {
-        topics,
-        userId: req.session.userId,
-        loggedIn: req.session.loggedIn,
-      });
   }
   catch (err) {
     res.status(500).json(err);
