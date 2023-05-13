@@ -75,13 +75,14 @@ router.get("/post", (req, res) => {
 
 router.get("/post/:id", async (req,res)=>{
     try {
-        const topicData = await Topic.findByPk(req.params.id,{
+      const topicData = await Topic.findByPk(req.params.id,{
         include: [
-            {
-                model: User,
-                attributes: ['username']
-            },
-            {model: Post},
+        {
+          model: User,
+          attributes: ['username']
+        },
+        {model: Comment},
+        {model: Post},
         ],
     });
 
@@ -101,7 +102,6 @@ router.get("/post/:id", async (req,res)=>{
 });
 
 router.get("/profile", async (req,res)=>{
-
   try {
     const userData = await User.findByPk(req.session.userId,{
     include: [
