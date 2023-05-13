@@ -1,4 +1,4 @@
-document.querySelector("#post-form").addEventListener("submit",e=>{
+document.querySelector("#comment-form").addEventListener("submit",e=>{
     e.preventDefault();
 
     const searchParam = document.location.pathname.split('/')
@@ -7,11 +7,11 @@ document.querySelector("#post-form").addEventListener("submit",e=>{
     
     function post(topic) {
         const postObj = {
-            notes:document.querySelector("#post").value,
+            text:document.querySelector("#comment").value,
             topic_id:topic
         }
         console.log(topic)
-        fetch("/api/posts",{
+        fetch("/api/comments",{
             method:"POST",
             body:JSON.stringify(postObj),
             headers:{

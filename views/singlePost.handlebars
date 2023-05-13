@@ -1,20 +1,18 @@
 <div>
-  <h3>{{user.username}}'s Blog: {{title}}</h3>
+  <h3>{{title}}</h3>
   {{#each posts}}
-    <p>Posted By: {{this.username}}</p>
+    <h4>Posted By: {{this.username}}</h4>
     <p>{{this.notes}}</p>
-    <p>Comments</p>
-    <h4>Add a comment</h4>
+  {{/each}}
+</div>
+    <h3>Comments</h3> 
+  {{#each comments}}
+  <h4>{{this.username}}</h4>
+  <p>{{this.text}}</p>
+  {{/each}}
+<h3>Add a comment</h3>
 <form id="comment-form">
     <textarea type="text" id="comment" placeholder="Text input"></textarea>
     <button>Submit</button>
 </form>
-  {{/each}}
-</div>
-
-<h3>Make a new post in "{{title}}"</h3>
-<form id="post-form">
-    <textarea type="text" id="post" placeholder="Text input"></textarea>
-    <button>Submit</button>
-</form>
-<script src="/js/newPost.js"></script>
+<script src="/js/newComment.js"></script>

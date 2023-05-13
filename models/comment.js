@@ -12,6 +12,14 @@ Comment.init({
         primaryKey: true,
         autoIncrement: true
     },
+    topic_id: {
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        references: {
+        model: "topics", 
+        key: "id"
+        },  
+    },
     text: {
         type: DataTypes.TEXT,
         allowNull: false
@@ -24,14 +32,10 @@ Comment.init({
         key: "id"
         }
     },
-    post_id: {
-        type: DataTypes.INTEGER,
-        allowNull:false,
-        references: {
-        model: "post", 
-        key: "id"
-        }, 
-    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      }
 },
 
 {
