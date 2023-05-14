@@ -64,10 +64,16 @@ h1 {
 #user{
   font-family: "Dancing Script", cursive;
 }
-
+#post-card{
+  margin-left: 550px;
+}
 #comment{
   width: 40%;
 
+}
+#profile-card{
+  margin-left: 550px;
+  min-width: 20%;
 }
 
 
