@@ -1,8 +1,9 @@
 #question-image {
   width: 30%;
   height: 50vh;
-  margin-left: 30%;
-  margin-bottom: 2%;
+  margin-left: 35%;
+  /* margin-bottom: 4%; */
+  text-align: center;
 }
 
 h1 {
@@ -28,16 +29,22 @@ h1 {
 
 #question {
   font-size: 30px;
+  color: aqua;
+  text-align: center;
+  /* margin-bottom: 5%; */
   
 }
+#feedback{
+  text-align: center;
+  color: aliceblue;
+}
 
-/* #choices{
-    
-  } */
 
-/* #choices{
+#choices{
     color: aqua;
-   } */
+    text-align: center;
+    /* margin-bottom: 4%; */
+   } 
    #lable{
     color: aliceblue;
    }

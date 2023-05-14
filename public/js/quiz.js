@@ -18,12 +18,12 @@ const displayChoices = (choices)=>{
             if(choice.isCorrect){
                 choiceIndex ++
                 console.log(choice.isCorrect);
-                feedback.textContent = "correct"
+                feedback.textContent = "You might be a good driver!!"
                 timeLeft +=10
                 
                 //displayChoices(choiceIndex)
             } else{
-               feedback.textContent = "wrong answer"
+               feedback.textContent = "you are definitely not a good driver!"
                timeLeft -=10;
 
                
@@ -53,7 +53,7 @@ function countDown() {
       clearInterval(timeInterval);
       
 
-      //       // displayMessage();
+           // // displayMessage();
     }
   }, 1000);
 }
@@ -65,6 +65,7 @@ const displayQuestion = (questionToDisplay) => {
     displayChoices(question.Choices)
     imageEl.src = question.image
     countDown()
+    
 };
 
 const getQuestions = async () => {
