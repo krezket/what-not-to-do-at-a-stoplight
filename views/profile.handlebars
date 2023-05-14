@@ -13,9 +13,9 @@
         
         <p  class="card-username">Created by: {{user.username}}</p>
         {{#each topics as |topic|}}
-            <h2 style="color: aliceblue;" class="card-title">{{topic.title}}</h2>
+            <h2 style="color: aliceblue;" class="card-title">{{title}}</h2>
             {{#each topic.posts as |post|}}
-            <p>{{post.notes}}</p> <button id="del-post" class="button is-link is-outlined" value={{post.id}}>delete</button>
+            <p>{{notes}}</p> <button id="del-post" class="button is-link is-outlined" value={{post.id}}>delete</button>
             {{/each}}
         {{/each}}
         <p style="color: aliceblue;" class="card-notes">notes{{post.notes}}</p>

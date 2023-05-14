@@ -31,12 +31,12 @@ Post.belongsTo(User,{
     foreignKey: 'user_id'
 });
 
-Post.hasMany(Comment,{
-    foreignKey: 'post_id'
+Topic.hasMany(Comment,{
+    foreignKey: 'topic_id'
 });
 
-Comment.belongsTo(Post,{
-    foreignKey: 'post_id'
+Comment.belongsTo(Topic ,{
+    foreignKey: 'topic_id'
 });
 
 Questions.hasMany(Choice,{
