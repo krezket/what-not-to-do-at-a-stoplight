@@ -31,7 +31,7 @@
 
       <nav>
         {{#if userId}}
-        <button id="logout" class="button is-link is-outlined">logout</button>
+        {{!-- <button id="logout" class="button is-link is-outlined">logout</button> --}}
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="/post">Make a post</a>
@@ -42,6 +42,8 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="/profile">profile</a>
+                <a id="logout" class="nav-link active" aria-current="page" href="/">logout</a>
+
                 
                 {{else}}
                 <button onclick="location.href='/login';" class="button is-info is-outlined ok"
