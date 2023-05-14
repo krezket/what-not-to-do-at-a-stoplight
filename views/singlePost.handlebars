@@ -46,8 +46,17 @@
   <h2></h2>
 
 </div>
+{{!-- {{else}} --}}
+{{!--
+<button onclick="location.href='/login';" class="button is-info is-outlined ok" style="text-align: center;">sign in/sign
+  up</button> --}}
 
 
+{{!-- {{/if}} --}}
+
+{{#if userId}}
+<script src="/js/logout.js"></script>
+{{/if}}
 
 
 
@@ -72,4 +81,4 @@
 
 
 <script src="/js/newComment.js"></script>
- <script src="/js/logout.js"></script>
+<script src="/js/logout.js"></script>

@@ -1,35 +1,28 @@
 <main>
     <div>
 
-    <button
-    onclick="location.href='/';"
-    class="button is-info is-outlined"
-    style="align-items: end;"
-  >Home</button>
-</div>
+        <button onclick="location.href='/';" class="button is-info is-outlined" style="align-items: end;">Home</button>
+    </div>
 
-<div class="card" style="width: 18rem;">
-    <section style="background-color:#394867 ;" class="card-tag">
-        <p class="card-username">Created by: {{username}}</p>
-        {{#each topics as |topic|}}
+    <div id="post-card" class="card" style="width: 18rem;">
+        <section class="card-tag">
+            <p style="color:black" class="card-username">Created by: {{username}}</p>
+            {{#each topics as |topic|}}
             <h3><a href="/post/{{topic.id}}">{{topic.title}}</a></h3>
             <button id="del-post" value="{{topic.id}}" class="button is-link is-outlined">delete</button>
-        {{/each}}
-        <p style="color: aliceblue;" class="card-notes">{{post.notes}}</p>
-        <p class="card-text">{{comments.text}}</p>
-         {{!-- <div class="card-group"> --}}
-            
- 
-      
-      
+            {{/each}}
+            <p style="color: aliceblue;" class="card-notes">{{post.notes}}</p>
+            <p class="card-text">{{comments.text}}</p>
+
+
     </div>
-  </div>
+    </div>
     </section>
-</div>
+    </div>
 
 
- 
- </main>
+
+</main>
 
 
 <script src="/js/profile.js"></script>
