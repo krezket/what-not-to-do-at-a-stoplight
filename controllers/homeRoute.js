@@ -102,9 +102,10 @@ router.get("/post/:id", async (req,res)=>{
 });
 
 router.get("/profile", async (req,res)=>{
-  try {
+
+  try{
     const userData = await User.findByPk(req.session.userId,{
-    include: [
+      include:[
         {
           model: Topic,
           attributes: ['title']
@@ -112,40 +113,21 @@ router.get("/profile", async (req,res)=>{
         {
           model: Post
         },
-    ],
+      ],
+    });
+
+    const user = userData.get({plain:true});
+    console.log(user);
+
+    res.render("profile", {
+      ...user,
+      username: req.session.username,
+      loggedIn: req.session.loggedIn,
+    });
+  }
+  catch(err){
+    res.status(500).json(err);
+  }
 });
-
-const user = userData.get({plain:true});
-console.log(user)
-
-res.render("profile", {
-    ...user,
-    username: req.session.username,
-    loggedIn: req.session.loggedIn,
-});
-}
-catch (err) {
-res.status(500).json(err);
-}
-
-    // User.findByPk(req.session.userId,{
-    //     include: [{model:Topic, include:Post}]
-    // }).then(user=>{
-    //     let userData = user.get({plain:true})
-    //     // console.log(userData);
-    //     console.log(user.topics)
-    //     console.log('========================')
-    //     console.log(user.posts)
-        
-    //     let topics = user.topics.map(topic=>topic.get({plain:true}))
-    //     console.log(topics);
-    //     res.render("profile",{
-    //         topics:topics, 
-    //         user:userData,
-    //     userId: req.session.userId,
-    //   loggedIn: req.session.loggedIn})
-
-    // })
-})
 
 module.exports = router;
