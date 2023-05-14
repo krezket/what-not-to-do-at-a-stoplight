@@ -107,20 +107,25 @@ router.get("/profile", async (req,res)=>{
     const userData = await User.findByPk(req.session.userId,{
       include:[
         {
-          model: Topic,
-          attributes: ['title']
-        },
+          model: Topic},
         {
-          model: Post
+          model: Post,
+          attributes: ['notes']
         },
       ],
     });
 
-    const user = userData.get({plain:true});
-    console.log(user);
+    // const postData = await Post.findAll(req.body);
+
+    const users = userData.get({plain:true});
+    console.log(users);
+    // console.log('=========================')
+    // const posts = postData.map(post=>post.get({ plain: true}));
+    // console.log(posts);
 
     res.render("profile", {
-      ...user,
+      ...users,
+      // ...posts,
       username: req.session.username,
       loggedIn: req.session.loggedIn,
     });
