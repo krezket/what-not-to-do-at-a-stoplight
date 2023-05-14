@@ -10,15 +10,12 @@
 
 <div class="column">
     <section style="background-color:#394867 ;" class="card-tag">
-        
-        <p  class="card-username">Created by: {{user.username}}</p>
+        <p class="card-username">Created by: {{username}}</p>
         {{#each topics as |topic|}}
-            <h2 style="color: aliceblue;" class="card-title">{{title}}</h2>
-            {{#each topic.posts as |post|}}
-            <p>{{notes}}</p> <button id="del-post" class="button is-link is-outlined" value={{post.id}}>delete</button>
-            {{/each}}
+            <h3><a href="/post/{{topic.id}}">{{topic.title}}</a></h3>
+            <button id="del-post" value="{{topic.id}}" class="button is-link is-outlined">delete</button>
         {{/each}}
-        <p style="color: aliceblue;" class="card-notes">notes{{post.notes}}</p>
+        <p style="color: aliceblue;" class="card-notes">{{post.notes}}</p>
         {{!-- <p class="card-text">text{{comments.text}}</p> --}}
     </section>
 </div>
