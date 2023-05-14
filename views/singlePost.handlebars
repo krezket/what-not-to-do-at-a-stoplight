@@ -1,3 +1,13 @@
+{{!-- {{#if userId}} --}}
+<div style="text-align: center;" id="">
+  <button id="logout" class="button is-link is-outlined">logout</button>
+  <button
+    onclick="location.href='/';"
+    class="button is-info is-outlined"
+    style=""
+  >Home</button>
+</div>
+
 <div>
   <h3>{{user.username}}'s Blog: {{title}}</h3>
   {{#each posts}}
@@ -10,11 +20,13 @@
     <button>Submit</button>
 </form>
   {{/each}}
-</div>
+</div>  
 
 <h3>Make a new post in "{{title}}"</h3>
 <form id="post-form">
-    <textarea type="text" id="post" placeholder="Text input"></textarea>
-    <button>Submit</button>
-</form>
+  <textarea type="text" id="post" placeholder="Text input"></textarea>
+  <button>Submit</button>
+</form>  
+//login button
+
 <script src="/js/newPost.js"></script>
