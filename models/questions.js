@@ -32,8 +32,8 @@ Questions.init(
   {
     sequelize,
     modelName: "questions",
-    freezeTableName: true
+    freezeTableName: true,
   }
 );
 
-  module.exports = Questions;
+module.exports = Questions;
