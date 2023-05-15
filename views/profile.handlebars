@@ -1,8 +1,10 @@
-<main>
+
     <div>
 
         <button onclick="location.href='/';" class="button is-info is-outlined" style="align-items: end;">Home</button>
     </div>
+
+<main id="post-card">
 
     <div id="post-card" class="card " style="width: 18rem;">
         <section class="card-tag">
@@ -26,3 +28,6 @@
 
 
 <script src="/js/profile.js"></script>
+ {{#if userId}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
