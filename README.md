@@ -43,7 +43,7 @@ Feel free to reach out for any contributions you may want to add.
 ## License
 MIT
 
-## Contributions
+## Contributors
 - Anthony Gurrero 
 - Birhanu Mengistu 
 - Jason Johnson 
