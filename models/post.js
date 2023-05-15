@@ -35,12 +35,12 @@ Post.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   },
   {
     sequelize,
     modelName: "post",
-    freezeTableName: true
+    freezeTableName: true,
   }
 );
 

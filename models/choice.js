@@ -12,31 +12,30 @@ Choice.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    
-    
+
     question_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: "questions",
-          key: "id",
-        },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "questions",
+        key: "id",
       },
-    
+    },
+
     answer: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
-    isCorrect : {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    }
+    isCorrect: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     sequelize,
     modelName: "Choice",
-    freezeTableName: true
+    freezeTableName: true,
   }
 );
 
-  module.exports = Choice;
+module.exports = Choice;

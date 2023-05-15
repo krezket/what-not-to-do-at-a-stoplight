@@ -37,56 +37,17 @@ router.post("/", async (req, res) => {
 router.get("/session", async (req, res) => {
   res.json(req.session);
 });
-// Login
-// router.post('/login', async (req, res) => {
-//   try {
-//     const userData = await User.findOne({
-//       where: {
-//         username: req.body.username
-//       },
-//     });
 
-//     if (!userData) {
-//       console.log("no user with this username");
-//       res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
-//       return;
-//     }
-
-//     const validPassword = await userData.checkPassword(req.body.password);
-
-//     if (!validPassword) {
-//       res
-//         .status(400)
-//         .json({ message: 'Incorrect email or password. Please try again!' });
-//       return;
-//     }
-
-//     req.session.save(() => {
-//       req.session.loggedIn = true;
-
-//       res
-//         .status(200)
-//         .json({ user: userData, message: 'You are now logged in!' });
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-//henry
 router.post("/login", async (req, res) => {
   console.log(req.body);
   try {
-    // try to find user with inputted username
     const userData = await User.findOne({
       where: { username: req.body.username },
     });
     if (!userData) {
       console.log("no user with this username!");
       res.status(403).json({ msg: "No user with this username" });
-      // if found, check password
     } else {
-      // if password matches, log them in!
       if (bcrypt.compareSync(req.body.password, userData.password)) {
         req.session.userId = userData.id;
         req.session.username = userData.username;
@@ -101,7 +62,7 @@ router.post("/login", async (req, res) => {
     res.status(500).json(error);
   }
 });
-// Logout
+
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy();

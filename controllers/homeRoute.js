@@ -4,50 +4,39 @@ const { Questions, Comment, Post, Topic, User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    if(!req.session.loggedIn){
-        res.render("home", {
-            userId: req.session.userId,
-            loggedIn: req.session.loggedIn,
-        });
-    }
-    else {
-        const userData = await User.findByPk(req.session.userId, {
-            attributes: { exclude: ['password'] },
-        });
-    
-        const topicData = await Topic.findAll({
-            include: [{
-                model: User,
-                attributes: ['username']
-            }],
-        })
-    
-        const user = userData.get({ plain: true });
-        const topics = topicData.map(topic=>topic.get({plain:true}));
-    
-        res.render("home", {
-            user,
-            topics,
-            userId: req.session.userId,
-            loggedIn: req.session.loggedIn,
-          });
-    
-    }
+    if (!req.session.loggedIn) {
+      res.render("home", {
+        userId: req.session.userId,
+        loggedIn: req.session.loggedIn,
+      });
+    } else {
+      const userData = await User.findByPk(req.session.userId, {
+        attributes: { exclude: ["password"] },
+      });
 
-  }
-  catch (err) {
+      const topicData = await Topic.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ["username"],
+          },
+        ],
+      });
+
+      const user = userData.get({ plain: true });
+      const topics = topicData.map((topic) => topic.get({ plain: true }));
+
+      res.render("home", {
+        user,
+        topics,
+        userId: req.session.userId,
+        loggedIn: req.session.loggedIn,
+      });
+    }
+  } catch (err) {
     res.status(500).json(err);
   }
 });
-
-// router.get("/login", async (req, res) => {
-//   res.render("login");
-// });
-// router.get('/logout',(req,res)=>{
-//     res.render('home', {
-//         loggedIn: req.session.loggedIn,
-//       })
-// })
 
 router.get("/quiz", (req, res) => {
   res.render("quiz", {
@@ -57,15 +46,14 @@ router.get("/quiz", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect("/");
-      return;
-    }
-    res.render("login");
-  });
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
 
 router.get("/post", (req, res) => {
-  // check if req.session.userId
   res.render("post", {
     username: req.session.username,
     userId: req.session.userId,
@@ -73,64 +61,56 @@ router.get("/post", (req, res) => {
   });
 });
 
-router.get("/post/:id", async (req,res)=>{
-    try {
-      const topicData = await Topic.findByPk(req.params.id,{
-        include: [
+router.get("/post/:id", async (req, res) => {
+  try {
+    const topicData = await Topic.findByPk(req.params.id, {
+      include: [
         {
           model: User,
-          attributes: ['username']
+          attributes: ["username"],
         },
-        {model: Comment},
-        {model: Post},
-        ],
+        { model: Comment },
+        { model: Post },
+      ],
     });
 
-    const topic = topicData.get({plain:true});
-    console.log(topic)
+    const topic = topicData.get({ plain: true });
+    console.log(topic);
 
     res.render("singlePost", {
-        ...topic,
-        username: req.session.username,
-        loggedIn: req.session.loggedIn,
+      ...topic,
+      username: req.session.username,
+      loggedIn: req.session.loggedIn,
     });
-    }
-    catch (err) {
+  } catch (err) {
     res.status(500).json(err);
-    }
-
+  }
 });
 
-router.get("/profile", async (req,res)=>{
-
-  try{
-    const userData = await User.findByPk(req.session.userId,{
-      include:[
+router.get("/profile", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.userId, {
+      include: [
         {
-          model: Topic},
+          model: Topic,
+        },
         {
           model: Post,
-          attributes: ['notes']
+          attributes: ["notes"],
         },
       ],
     });
 
-    // const postData = await Post.findAll(req.body);
-
-    const users = userData.get({plain:true});
+    const users = userData.get({ plain: true });
     console.log(users);
-    // console.log('=========================')
-    // const posts = postData.map(post=>post.get({ plain: true}));
-    // console.log(posts);
 
     res.render("profile", {
       ...users,
-      // ...posts,
+
       username: req.session.username,
       loggedIn: req.session.loggedIn,
     });
-  }
-  catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
 });
