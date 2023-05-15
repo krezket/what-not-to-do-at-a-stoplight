@@ -19,6 +19,13 @@ document.querySelector("#comment-form").addEventListener("submit", (e) => {
       },
     }).then((res) => {
       if (res.ok) {
+        fetch(`/api/email/${topic}`, {
+            method: "POST",
+            body: JSON.stringify(postObj),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
         location.reload();
       } else {
         alert("bruh");

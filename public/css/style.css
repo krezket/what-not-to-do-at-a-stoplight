@@ -1,11 +1,16 @@
 * {
   box-sizing: border-box;
 }
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
 #question-image {
   width: 30%;
   height: 50vh;
   margin-left: 35%;
-
+  
   text-align: center;
 }
 
@@ -18,6 +23,10 @@ h1 {
 }
 #btn {
   margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #text {
   min-width: 40%;
@@ -34,48 +43,59 @@ h1 {
   font-size: 30px;
   color: aqua;
   text-align: center;
+  
+  
 }
-#feedback {
+#feedback{
   text-align: center;
   color: aliceblue;
 }
 
-#choices {
-  color: aqua;
-  text-align: center;
-}
-#lable {
-  color: aliceblue;
-}
-#input-post {
+
+#choices{
+    color: aqua;
+    text-align: center;
+    
+   } #lable{
+    color: aliceblue;
+   }
+#input-post{
   color: aliceblue;
   font-family: "Dancing Script", cursive;
 }
 
-.card-username {
+.card-username{
   color: aliceblue;
   font-size: 30px;
   font-family: "Dancing Script", cursive;
 }
-#user {
+#user{
   font-family: "Dancing Script", cursive;
 }
-#post-card {
-  margin-left: 550px;
+#post-card{
+  
+  display:flex;
+  flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
-#comment {
+#comment{
   width: 40%;
+
 }
-#profile-card {
-  margin-left: 550px;
-  min-width: 20%;
+#profile-card{
+  flex-wrap: wrap;
+ display:flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ 
 }
 
-body {
-  font-family: Arial;
-  padding: 20px;
-  background: #f1f1f1;
-}
+
+
+
 
 .header {
   padding: 30px;
@@ -84,10 +104,12 @@ body {
   background: white;
 }
 
+
 .leftcolumn {
   float: left;
   width: 75%;
 }
+
 
 .rightcolumn {
   float: left;
@@ -95,17 +117,21 @@ body {
   padding-left: 20px;
 }
 
+
 .card {
+  
   background-color: white;
   padding: 20px;
   margin-top: 20px;
 }
+
 
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
+
 
 .footer {
   padding: 20px;
@@ -114,23 +140,35 @@ body {
   margin-top: 20px;
 }
 
+/* @media(max-width: 767px) {
+  .container-fluid {
+      width: auto;
+  }
+} */
+@media screen and (max-width: 600px) {
+  .leftcolumn {
+    width: 100%;
+    padding: 0;
+  }
+  
+}
 a {
   text-decoration: none;
-  color: #18272f;
+  color: #18272F;
   font-weight: 700;
   position: relative;
 }
 
 a::before {
-  content: "";
-  background-color: hsla(196, 61%, 58%, 0.75);
+  content: '';
+  background-color: hsla(196, 61%, 58%, .75);
   position: absolute;
   left: 0;
   bottom: 3px;
   width: 100%;
   height: 8px;
   z-index: -1;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 a:hover::before {
